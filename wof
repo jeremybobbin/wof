@@ -1,0 +1,3 @@
+#!/bin/sh
+cat "$@" | tof | sort -k2 | awk 'prev == $2 { s = s " " $1; prev=$2; next }
+	s { print s } { s=$2 " " $1; prev=$2 }'
